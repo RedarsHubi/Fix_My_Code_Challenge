@@ -1,27 +1,29 @@
 #!/usr/bin/python3
+""" 
+User class
+"""
 
-class square():
-    
-    width = 0
+class User():
+    """ Documentation """
 
-    
-    def __init__(self, *args, **kwargs):
-        for key, value in kwargs.items():
-            setattr(self, key, value)
+    def __init__(self):
+        """ Documentation """
+        self.__email = None
 
-    def area_of_my_square(self):
-        """ Area of the square """
-        return self.width * self.width
-
-    def PermiterOfMySquare(self):
-        return (self.width * 4)
+    @property
+    def email(self):
+        """ Documentation """
+        return self.__email
         
-    def __str__(self):
-        return "{}".format(self.width)
-
+    @email.setter
+    def email(self, value):
+        """ Documentation """
+        if type(value) is not str:
+            raise TypeError("email must be a string")
+        self.__email = value   
+    
 if __name__ == "__main__":
 
-    s = square(width=12)
-    print(s)
-    print(s.area_of_my_square())
-    print(s.PermiterOfMySquare())
+    u = User()
+    u.email = "john@snow.com"
+    print(u.email)
